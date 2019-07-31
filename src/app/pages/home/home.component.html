@@ -7,5 +7,26 @@
 	Recommendations
 	<hr>
   
+	<div *ngFor = "let video of videos"  class="vid">
+
+		
+		
+
+		<video width="320" height="240" controls>
+			<source src="{{video.payload.doc._document.proto.fields.url.stringValue}}" type="video/mp4">
+		</video>
+
+		{{video.payload.doc._document.proto.fields.description.stringValue}}
+
+		
+		<!-- <div *ngFor="let tag of video.payload.doc._document.proto.fields.tags">
+				{{tag.stringValue}}
+			FIXME no funcionaaa
+		</div> -->
+
+
+		<hr>
+
+	</div>
 
 </body>

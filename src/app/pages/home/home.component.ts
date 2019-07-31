@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import {AuthService} from '../../services/auth.service';
 import { DbService } from 'src/app/services/db.service';
+import { Observable } from 'rxjs';
+import { Video } from '../../models/video.model';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -13,10 +15,8 @@ export class HomeComponent implements OnInit {
 
   constructor(private db: DbService) {
 
-    this.db.getVideos().subscribe(res => {
-
-      this.videos = res;
-
+    db.getVideos().subscribe((vids) => {
+      this.videos = vids;
     });
 
    }

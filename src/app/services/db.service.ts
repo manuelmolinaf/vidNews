@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore} from '@angular/fire/firestore';
 import * as firebase from 'firebase';
 import { Video } from '../models/video.model';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable } from 'rxjs';
+
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,8 @@ import { BehaviorSubject } from 'rxjs';
 export class DbService {
   private uploadTask: firebase.storage.UploadTask;
   public imgObs: BehaviorSubject<string>;
+
+
   constructor(private afs: AngularFirestore) {
     this.imgObs = new BehaviorSubject(null);
   }
@@ -53,6 +56,6 @@ export class DbService {
   }
 
   getVideos() {
-      return this.afs.collection('videos').snapshotChanges();
+    return this.afs.collection('videos').snapshotChanges();
   }
 }
