@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore} from '@angular/fire/firestore';
+import { AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
 import * as firebase from 'firebase';
 import { Video } from '../models/video.model';
 import { BehaviorSubject, Observable } from 'rxjs';
@@ -12,9 +12,15 @@ export class DbService {
   private uploadTask: firebase.storage.UploadTask;
   public imgObs: BehaviorSubject<string>;
 
+  videoCollectionRef: AngularFirestoreCollection<Video>;
+  videos: Observable<Video[]>;
+
 
   constructor(private afs: AngularFirestore) {
     this.imgObs = new BehaviorSubject(null);
+
+    this.videoCollectionRef = this.afs.collection<Video>('videos');
+    this.videos = this.videoCollectionRef.valueChanges();
   }
 
   pushUpload(name: string, file: any) {
@@ -43,7 +49,8 @@ export class DbService {
     const data: any = {
       tags: video.tags,
       description: video.description,
-      url: video.url
+      url: video.url,
+      title: video.title
     };
 
     return new Promise<any>((resolve, reject) => {
@@ -56,6 +63,6 @@ export class DbService {
   }
 
   getVideos() {
-    return this.afs.collection('videos').snapshotChanges();
+    return this.videos;
   }
 }

@@ -11,13 +11,16 @@ import { Video } from '../../models/video.model';
 })
 export class HomeComponent implements OnInit {
 
-  videos: Array<any>;
+  videos: Observable<Video[]>;
 
   constructor(private db: DbService) {
 
-    db.getVideos().subscribe((vids) => {
-      this.videos = vids;
-    });
+    // db.getVideos().subscribe((vids) => {
+    //   this.videos = vids;
+
+    // });
+
+    this.videos = this.db.getVideos();
 
    }
 

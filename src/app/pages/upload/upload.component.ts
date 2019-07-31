@@ -15,7 +15,7 @@ export class UploadComponent implements OnInit {
   ngOnInit() {
   }
 
-  upload(description: string, tags: string, fileInput: any) {
+  upload(description: string, tags: string, title: string, fileInput: any) {
     console.log(fileInput);
     const video = fileInput[0];
 
@@ -27,7 +27,7 @@ export class UploadComponent implements OnInit {
       this.db.imgObs.subscribe((url) => {
         if (url) {
           console.log(tags);
-          const vid = new Video(tags.split(','), description, url);
+          const vid = new Video(tags.split(','), description, url, title);
           this.db.addVideo(vid);
         }
       });

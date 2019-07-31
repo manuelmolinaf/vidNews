@@ -4,27 +4,30 @@
 
 <body>
 	
-	Recommendations
+	<h3>Recommendations</h3>
 	<hr>
   
-	<div *ngFor = "let video of videos"  class="vid">
 
-		
-		
+	<div *ngFor = "let video of videos | async"  
+		[class.title]="video.title"
+		[class.url]="video.url"
+		[class.description]="video.description"
+		[class.tags]="video.tags">
 
-		<video width="320" height="240" controls>
-			<source src="{{video.payload.doc._document.proto.fields.url.stringValue}}" type="video/mp4">
+		<h4>{{video.title}}</h4>
+
+		<video width="100%" height="390" controls>
+			<source src="{{video.url}}" type="video/mp4">
 		</video>
+		<p>
+			{{video.description}}<br>
+		</p>
 
-		{{video.payload.doc._document.proto.fields.description.stringValue}}
-
+		<span *ngFor = "let tag of video.tags" style="margin-right: 10px"> 
+			
+			<a href="" style="color: red">#{{tag}}</a>
+		</span>
 		
-		<!-- <div *ngFor="let tag of video.payload.doc._document.proto.fields.tags">
-				{{tag.stringValue}}
-			FIXME no funcionaaa
-		</div> -->
-
-
 		<hr>
 
 	</div>
