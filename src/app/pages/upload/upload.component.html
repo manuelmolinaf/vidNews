@@ -28,10 +28,10 @@
 
   <div>
       <h5 style="margin-top: 20px">Tags</h5>  
-      <input data-role="tagsinput"  value={{cats}} #tags>
+      <input data-role="tagsinput" value=""  #tags>
       
   </div>
 
-  <button type="button" class="btn btn-danger mt-2" (click)="upload(description.value, tags.value, videoInput.files)">Submit</button>
+  <button type="button" class="btn btn-danger mt-2" (click)="upload(description.value, tags.value, videoInput.files); toHome()">Submit</button>
   
 </body>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DbService } from '../../services/db.service';
 import { Video } from '../../models/video.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-upload',
@@ -9,7 +10,7 @@ import { Video } from '../../models/video.model';
 })
 export class UploadComponent implements OnInit {
 
-  constructor(private db: DbService) { }
+  constructor(private db: DbService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -20,7 +21,7 @@ export class UploadComponent implements OnInit {
 
     console.log(tags);
 
-    if (fileInput && description && tags){
+    if (fileInput && description && tags) {
       this.db.pushUpload(video.name, video);
 
       this.db.imgObs.subscribe((url) => {
@@ -31,6 +32,10 @@ export class UploadComponent implements OnInit {
         }
       });
     }
+  }
+
+  toHome() {
+    this.router.navigateByUrl('pages/home');
   }
 
 
