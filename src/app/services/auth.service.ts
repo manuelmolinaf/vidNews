@@ -15,6 +15,7 @@ export interface User {
     photoURL?: string;
     firstName?: string;
     lastName?: string;
+    accountType?: string;
   }
 
 

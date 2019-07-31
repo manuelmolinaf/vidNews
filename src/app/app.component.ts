@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
+import {AuthService} from './services/auth.service';
 import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
@@ -9,16 +10,21 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'vid-news';
+  ad = 'admin';
 
-  user: any;
 
-  constructor(private router: Router, private authen: AngularFireAuth) {
 
-    this.user = this.authen.auth.currentUser;
+  constructor(private router: Router, private auth: AuthService) {
+
+
    }
 
    toUpload() {
     this.router.navigateByUrl('pages/upload');
+  }
+
+  signOut() {
+    this.auth.signOut();
   }
 
 

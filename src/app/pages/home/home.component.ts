@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/auth';
 import {AuthService} from '../../services/auth.service';
 import { DbService } from 'src/app/services/db.service';
 import { Observable } from 'rxjs';
@@ -13,18 +12,16 @@ export class HomeComponent implements OnInit {
 
   videos: Observable<Video[]>;
 
-  constructor(private db: DbService) {
 
-    // db.getVideos().subscribe((vids) => {
-    //   this.videos = vids;
-
-    // });
+  constructor(private db: DbService, private auth: AuthService) {
 
     this.videos = this.db.getVideos();
+
 
    }
 
   ngOnInit() {
+
   }
 
 }

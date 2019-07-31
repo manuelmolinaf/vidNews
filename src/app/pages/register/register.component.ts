@@ -28,6 +28,7 @@ export class RegisterComponent implements OnInit {
 
 
     const email = this.email.nativeElement.value;
+    const type = 'user';
     const password = this.password.nativeElement.value;
     const fName = this.fName.nativeElement.value;
     const lName = this.lName.nativeElement.value;
@@ -37,6 +38,7 @@ export class RegisterComponent implements OnInit {
       email,
       firstName: fName,
       lastName: lName,
+      accountType: type
     };
 
     this.auth.emailLogin(email, password, data).then(() => {

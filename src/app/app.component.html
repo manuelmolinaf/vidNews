@@ -9,7 +9,7 @@
 			
 
 			<a  style="text-decoration: none" href="">
-				<h5 id="name">
+				<h5 class="navElement">
 					<i class="fas fa-forward mr-sm-2"></i>
 					Vid News
 				</h5>
@@ -27,11 +27,38 @@
 			</form>
 	
 			<div class="form-inline">
-				<button type="button" class="btn btn-danger mr-3" (click)="toUpload()">Upload</button>
 				
-				<h5><a id="signin" href="pages/login">Sign In</a></h5>
+				<div *ngIf="auth.user | async as user; else loggedOut" class="form-inline">
+					<h5 class="navElement  mr-3">{{user.firstName}} {{user.lastName}}</h5>
+
+					<div *ngIf="user.accountType===ad">
+						<button type="button" class="btn btn-danger mr-3" (click)="toUpload()">Upload</button>
+					</div>
+
+					<button type="button" class="btn btn-danger" (click)="signOut()">Sign Out</button>
+
+					
+
+				</div>
+
+				<!-- <div *ngIf="auth.user.accountType === 'admin' | async" class="form-inline">
+						<button type="button" class="btn btn-danger mr-3" (click)="toUpload()">Upload</button>
+					</div> -->
+
+				
+			
+				
+				<ng-template #loggedOut>
+						<h5><a class="navElement" href="pages/login">Sign In</a></h5>
+				</ng-template>
 
 			</div>
+
+			
+
+			
+
+			
 	
 			
 			
