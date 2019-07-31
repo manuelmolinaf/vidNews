@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Pipe, PipeTransform } from '@angular/core';
 import {AuthService} from '../../services/auth.service';
 import { DbService } from 'src/app/services/db.service';
 import { Observable } from 'rxjs';
@@ -7,24 +7,21 @@ import { Router } from '@angular/router';
 
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  selector: 'app-tags',
+  templateUrl: './tags.component.html',
+  styleUrls: ['./tags.component.css']
 })
-export class HomeComponent implements OnInit {
+export class TagsComponent implements OnInit {
 
   videos: Observable<Video[]>;
-
 
   constructor(private db: DbService, private auth: AuthService, private router: Router) {
 
     this.videos = this.db.getVideos();
 
-
-   }
+  }
 
   ngOnInit() {
-
   }
 
   toTagResult(tag: string) {
@@ -32,7 +29,5 @@ export class HomeComponent implements OnInit {
     this.router.navigateByUrl('pages/tag-result/' + tag);
 
   }
-
-
 
 }

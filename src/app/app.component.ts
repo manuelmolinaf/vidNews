@@ -23,8 +23,18 @@ export class AppComponent {
     this.router.navigateByUrl('pages/upload');
   }
 
+  toTags() {
+    this.router.navigateByUrl('pages/tags');
+  }
+
   signOut() {
     this.auth.signOut();
+  }
+
+  toSearchResults(keyword: string) {
+
+    this.router.navigateByUrl('pages/search-results/' + keyword);
+
   }
 
 

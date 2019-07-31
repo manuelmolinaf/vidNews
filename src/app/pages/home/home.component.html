@@ -26,7 +26,7 @@
 
 		<span *ngFor = "let tag of video.tags" style="margin-right: 10px"> 
 			
-			<a href="" style="color: red">#{{tag}}</a>
+			<a (click)="toTagResult(tag)" style="color: red; cursor: pointer;">#{{tag}}</a>
 		</span>
 		
 		<hr>

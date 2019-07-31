@@ -1,0 +1,23 @@
+<head></head>
+
+<body>
+  
+
+    
+    <div *ngFor = "let video of videos | async"  
+    [class.tags]="video.tags" class="form-inline">
+
+    <div *ngFor = "let tag of video.tags" class="grid-container" >
+
+       <h3>
+          <span class="badge badge-pill badge-danger mr-3" (click)="toTagResult(tag)" style="cursor: pointer">#{{tag}}</span>
+       </h3> 
+      
+
+    </div>
+    
+    </div>
+
+
+
+</body>

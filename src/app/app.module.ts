@@ -16,6 +16,10 @@ import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { UploadComponent } from './pages/upload/upload.component';
+import { TagResultComponent } from './pages/tag-result/tag-result.component';
+import { SearchResultsComponent } from './pages/search-results/search-results.component';
+import { TagsComponent } from './pages/tags/tags.component';
+
 
 
 @NgModule({
@@ -24,7 +28,10 @@ import { UploadComponent } from './pages/upload/upload.component';
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    UploadComponent
+    UploadComponent,
+    TagResultComponent,
+    SearchResultsComponent,
+    TagsComponent
   ],
   imports: [
     BrowserModule,

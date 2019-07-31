@@ -1,0 +1,39 @@
+<head>
+
+  </head>
+  
+  <body>
+      
+  
+    <h3>#{{tag}}</h3>
+    <hr>
+    
+  
+    <div *ngFor = "let video of videos | async"  
+      [class.title]="video.title"
+      [class.url]="video.url"
+      [class.description]="video.description"
+      [class.tags]="video.tags">
+
+
+      <div *ngIf ="hasTag(video.tags)">
+  
+        <h4>{{video.title}}</h4>
+    
+        <video width="100%" height="auto" controls>
+          <source src="{{video.url}}" type="video/mp4">
+        </video>
+        <p>
+          {{video.description}}<br>
+        </p>
+    
+        <span *ngFor = "let tag of video.tags" style="margin-right: 10px"> 
+          
+          <a (click)="toTagResult(tag)" style="color: red; cursor: pointer;">#{{tag}}</a>
+        </span>
+        
+        <hr>
+      </div>
+    </div>
+  
+  </body>
