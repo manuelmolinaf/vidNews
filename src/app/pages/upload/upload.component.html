@@ -1,0 +1,37 @@
+<head>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+
+<body>
+  
+    <div class="container">
+        <div class="row">
+          <div class="col-md-6">
+              <form method="post" action="#" id="#">
+                     
+                <div class="form-group files">
+                  <label><h5>Upload Your Video</h5> </label>
+                  <input type="file" class="form-control" multiple="" #videoInput>
+                </div>
+              </form>
+
+          </div>
+        </div>
+      </div>
+      
+  <form>
+      <div class="form-group">
+        <label><h5>Description</h5></label>
+        <textarea class="form-control"rows="3" #description></textarea>
+      </div>
+  </form>
+
+  <div>
+      <h5 style="margin-top: 20px">Tags</h5>  
+      <input data-role="tagsinput"  value={{cats}} #tags>
+      
+  </div>
+
+  <button type="button" class="btn btn-danger mt-2" (click)="upload(description.value, tags.value, videoInput.files)">Submit</button>
+  
+</body>

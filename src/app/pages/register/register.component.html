@@ -1,0 +1,34 @@
+<head>
+
+</head>
+
+<body>
+  
+
+  <p class="h4 mb-4">Sign up</p>
+
+  <div class="form-row mb-4">
+      <div class="col">
+          
+          <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name" required #fName>
+      </div>
+      <div class="col">
+        
+          <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name" required #lName>
+      </div>
+  </div>
+
+  
+  <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail" required #email>
+
+
+  <label for="inputPassword5">Password</label>
+<input type="password" id="inputPassword5" class="form-control" aria-describedby="passwordHelpBlock" #password>
+  
+
+
+  <button class="btn btn-danger my-4 btn-block" type="submit" (click)="onSubmit()">Sign up</button>
+
+
+
+</body>

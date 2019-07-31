@@ -3,7 +3,16 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  firebaseConfig : {
+    apiKey: 'AIzaSyCFN_lGjwi9mZJHoUx0w_elJRTBUPuzh3w',
+    authDomain: 'vidnews-a374b.firebaseapp.com',
+    databaseURL: 'https://vidnews-a374b.firebaseio.com',
+    projectId: 'vidnews-a374b',
+    storageBucket: 'vidnews-a374b.appspot.com',
+    messagingSenderId: '1034225223982',
+    appId: '1:1034225223982:web:041c86525ae86da5'
+  }
 };
 
 /*
